@@ -8,6 +8,7 @@ import {
   Alert,
   Switch,
   SafeAreaView,
+  Image,
 } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useRouter } from 'expo-router';
@@ -715,13 +716,29 @@ export default function SettingsScreen() {
             </GlassCard>
           </View>
 
+          {/* Branding Footer */}
           <View style={styles.footer}>
-            <Text style={[styles.footerText, { color: colors.text.tertiary }]}>
-              FinPal - Your Financial Companion
+            <Image
+              source={require('../../assets/finPal.png')}
+              style={styles.footerLogo}
+              resizeMode="contain"
+            />
+            <Text style={[styles.footerAppName, { color: colors.text.primary }]}>
+              finPal
             </Text>
-            <Text style={[styles.footerText, { color: colors.text.tertiary }]}>
-              Made with 💛
+            <Text style={[styles.footerTagline, { color: colors.text.secondary }]}>
+              Your Personal Finance Companion
             </Text>
+            <View style={styles.ecosystemBadge}>
+              <Image
+                source={require('../../assets/palStack.png')}
+                style={styles.palStackLogo}
+                resizeMode="contain"
+              />
+              <Text style={[styles.ecosystemText, { color: colors.text.tertiary }]}>
+                Part of the palStack ecosystem
+              </Text>
+            </View>
           </View>
         </ScrollView>
       </LinearGradient>
@@ -853,9 +870,38 @@ const styles = StyleSheet.create({
     marginTop: spacing.lg,
     paddingBottom: 100, // Extra padding for tab bar
   },
-  footerText: {
-    fontSize: 11,
-    fontWeight: typography.weights.medium,
+  footerLogo: {
+    width: 60,
+    height: 60,
+    marginBottom: spacing.sm,
+  },
+  footerAppName: {
+    fontSize: 20,
+    fontWeight: typography.weights.bold,
     marginBottom: spacing.xs,
+  },
+  footerTagline: {
+    fontSize: 13,
+    fontWeight: typography.weights.medium,
+    marginBottom: spacing.md,
+  },
+  ecosystemBadge: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: 'rgba(21, 128, 61, 0.1)',
+    paddingHorizontal: spacing.md,
+    paddingVertical: spacing.sm,
+    borderRadius: 16,
+    borderWidth: 1,
+    borderColor: 'rgba(21, 128, 61, 0.2)',
+  },
+  palStackLogo: {
+    width: 18,
+    height: 18,
+    marginRight: spacing.xs,
+  },
+  ecosystemText: {
+    fontSize: 12,
+    fontWeight: typography.weights.medium,
   },
 });

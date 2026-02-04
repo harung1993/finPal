@@ -1,12 +1,12 @@
 {
   "expo": {
-    "name": "DollarDollar",
-    "slug": "dollardollar",
+    "name": "finPal",
+    "slug": "finpal",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/finPal.png",
     "userInterfaceStyle": "automatic",
-    "scheme": "dollardollar",
+    "scheme": "finpal",
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
@@ -17,17 +17,17 @@
     ],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.dollardollar.app"
+      "bundleIdentifier": "io.palstack.finpal"
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
+        "foregroundImage": "./assets/finPal.png",
         "backgroundColor": "#0a0a0a"
       },
-      "package": "com.dollardollar.app"
+      "package": "io.palstack.finpal"
     },
     "web": {
-      "favicon": "./assets/favicon.png",
+      "favicon": "./assets/finPal.png",
       "bundler": "metro"
     },
     "plugins": [

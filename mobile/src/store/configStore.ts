@@ -14,7 +14,7 @@ interface ConfigState {
 
 const DEFAULT_BACKEND_URL = __DEV__
   ? 'http://localhost'
-  : 'https://api.dollardollar.app';
+  : 'https://api.finpal.palstack.io';
 
 export const useConfigStore = create<ConfigState>()(
   persist(

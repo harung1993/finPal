@@ -8,6 +8,7 @@ import {
   ScrollView,
   Alert,
   TouchableOpacity,
+  Image,
 } from 'react-native';
 import { useRouter } from 'expo-router';
 import { LinearGradient } from 'expo-linear-gradient';
@@ -29,7 +30,7 @@ export default function WelcomeScreen() {
   }, [isConfigured, backendUrl]);
 
   const handleUseDefault = () => {
-    const defaultUrl = __DEV__ ? 'http://localhost' : 'https://api.dollardollar.app';
+    const defaultUrl = __DEV__ ? 'http://localhost' : 'https://api.finpal.palstack.io';
     setBackendUrl(defaultUrl);
     router.replace('/(auth)/login');
   };
@@ -94,11 +95,23 @@ export default function WelcomeScreen() {
           <View style={styles.content}>
             {/* Logo/Title Section */}
             <View style={styles.header}>
-              <Text style={styles.logo}>💰</Text>
-              <Text style={styles.title}>DollarDollar</Text>
+              <Image
+                source={require('../assets/finPal.png')}
+                style={styles.logo}
+                resizeMode="contain"
+              />
+              <Text style={styles.title}>finPal</Text>
               <Text style={styles.subtitle}>
                 Your Personal Finance Companion
               </Text>
+              <View style={styles.ecosystemBadge}>
+                <Image
+                  source={require('../assets/palStack.png')}
+                  style={styles.palStackLogo}
+                  resizeMode="contain"
+                />
+                <Text style={styles.ecosystemText}>Part of palStack</Text>
+              </View>
             </View>
 
             {/* Feature Highlights */}
@@ -122,7 +135,7 @@ export default function WelcomeScreen() {
               <Card variant="glass" style={styles.card}>
                 <Text style={styles.cardTitle}>Get Started</Text>
                 <Text style={styles.cardDescription}>
-                  Choose how you'd like to connect to your DollarDollar backend
+                  Choose how you'd like to connect to your finPal backend
                 </Text>
 
                 <Button
@@ -156,7 +169,7 @@ export default function WelcomeScreen() {
 
                 <Text style={styles.cardTitle}>Custom Backend</Text>
                 <Text style={styles.cardDescription}>
-                  Enter your self-hosted DollarDollar backend URL
+                  Enter your self-hosted finPal backend URL
                 </Text>
 
                 <Input
@@ -225,7 +238,8 @@ const styles = StyleSheet.create({
   },
 
   logo: {
-    fontSize: 80,
+    width: 100,
+    height: 100,
     marginBottom: spacing.md,
   },
 
@@ -234,7 +248,6 @@ const styles = StyleSheet.create({
     fontSize: 36,
     fontWeight: typography.weights.bold,
     marginBottom: spacing.sm,
-    background: 'linear-gradient(to right, #86efac, #fbbf24)',
     textAlign: 'center',
   },
 
@@ -242,6 +255,30 @@ const styles = StyleSheet.create({
     color: colors.text.secondary,
     ...typography.styles.body,
     textAlign: 'center',
+    marginBottom: spacing.md,
+  },
+
+  ecosystemBadge: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: 'rgba(21, 128, 61, 0.15)',
+    paddingHorizontal: spacing.md,
+    paddingVertical: spacing.sm,
+    borderRadius: 20,
+    borderWidth: 1,
+    borderColor: 'rgba(21, 128, 61, 0.3)',
+  },
+
+  palStackLogo: {
+    width: 20,
+    height: 20,
+    marginRight: spacing.xs,
+  },
+
+  ecosystemText: {
+    color: '#86efac',
+    fontSize: 12,
+    fontWeight: typography.weights.medium,
   },
 
   features: {
